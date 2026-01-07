@@ -33,6 +33,16 @@ pip install -r requirements.txt
 
 ## Quick Start
 
+### Try the Demo (No API Key Required)
+
+```bash
+python demo.py
+```
+
+This demonstrates the Constitutional AI structure and flow without requiring any API keys.
+
+### Use with Real API
+
 ```python
 from constitutional_ai import ConstitutionalAI
 
@@ -166,7 +176,15 @@ pip install pytest pytest-mock
 pytest test_constitutional_ai.py -v
 ```
 
-## Running the Example
+## Running Examples
+
+### Demo (No API Key Required)
+
+```bash
+python demo.py
+```
+
+### Full Example (Requires API Key)
 
 ```bash
 # Set your API key
