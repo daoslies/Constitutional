@@ -1,0 +1,7 @@
+# Core dependencies for Constitutional AI implementation
+openai>=1.0.0
+anthropic>=0.18.0
+
+# Development dependencies
+pytest>=7.0.0
+pytest-mock>=3.10.0
