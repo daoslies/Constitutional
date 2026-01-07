@@ -32,8 +32,6 @@ setup(
     install_requires=[
         "openai>=1.0.0",
         "anthropic>=0.18.0",
-        "python-dotenv>=1.0.0",
-        "pydantic>=2.0.0",
     ],
     extras_require={
         "dev": [
