@@ -7,6 +7,7 @@ import re
 PROMPTS = "configs/prompts.yaml"
 questions_csv = "outputs/questions.csv"
 responses_csv = "outputs/responses/"
+run_version = "py_dev_mini_1"
 
 def load_prompts(path=PROMPTS):
     with open(path, "r") as f:
@@ -14,6 +15,23 @@ def load_prompts(path=PROMPTS):
 
 def get_questions(path=questions_csv):
     return get_column_from_csv(path, "question")
+
+def get_responses(path=responses_csv, run_version=run_version):
+    path = Path(path + run_version + "/combined_responses.csv")
+    return get_column_from_csv(path, "response")
+
+
+def get_question_response_pairs(path=responses_csv, run_version=run_version):
+    path = Path(path + run_version + "/combined_responses.csv")
+    data = []
+    with path.open(newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            question = row.get("question", None)
+            response = row.get("response", None)
+            if question and response:
+                data.append((question, response))
+    return data
 
 
 def get_column_from_csv(path, column_name):

@@ -40,12 +40,10 @@ def parse_evaluation(evaluation_text: str):
     - Multiple 'Revised Response (continued):' sections
     """
 
-    # Remove <text> wrappers
-    #text = re.sub(r"<text>.*?</text>", "", evaluation_text, flags=re.DOTALL | re.IGNORECASE)
     text = strip_conversation_blocks(evaluation_text)
 
     print('================= PARSING EVALUATION TEXT =================')
-    print(text)
+    print(text[:1000] + ('...' if len(text) > 1000 else ''))
     print('===========================================================')
 
     # ---------- SCORE ----------
