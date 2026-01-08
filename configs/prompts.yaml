@@ -59,8 +59,8 @@ role:
 
       Output format (strictly follow this):
 
-      Score: <number>
       Critique: <text>
+      Score: <number>
       Revised Response: <text>
 
 
@@ -68,7 +68,6 @@ role:
                       -----
       {judge_prompt}
                       -----
-      Evaluation: 
 
     tags: [system, judge]
 
@@ -76,7 +75,19 @@ role:
     id: system.question_answerer
     description: "Prompt to produce a clear, helpful answer to a user's question."
     prompt: |
-      Please provide an answer to the user's question below.
-        Question: {question}
-        Answer:
+      You are answering a real user question.
+
+      Do NOT include:
+      - examples
+      - templates
+      - markdown headings
+      - meta-commentary
+      - references to other prompts or tasks
+
+      Answer the question directly in plain text.
+      Answer in less than 150 words.
+
+      Question:
+      {question}
+
     tags: [system, question_answerer]

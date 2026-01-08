@@ -1,0 +1,70 @@
+from pathlib import Path
+import csv
+import yaml
+import re
+
+
+PROMPTS = "configs/prompts.yaml"
+questions_csv = "outputs/questions.csv"
+responses_csv = "outputs/responses/"
+
+def load_prompts(path=PROMPTS):
+    with open(path, "r") as f:
+        return yaml.safe_load(f)
+
+def get_questions(path=questions_csv):
+    return get_column_from_csv(path, "question")
+
+
+def get_column_from_csv(path, column_name):
+    data = []
+    with Path(path).open(newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            val = row.get(column_name, None)
+            if val:
+                data.append(val)
+    return data
+
+def extract_question(prompt: str) -> str:
+    if "Question:\n" in prompt:
+        return prompt.split("Question:\n")[-1].strip()
+    return prompt.strip()
+
+def extract_response(prompt: str, full_text: str) -> str:
+    question_text = extract_question(prompt)
+    idx = full_text.rfind(question_text)
+    if idx != -1:
+        return full_text[idx + len(question_text):].strip()
+    return full_text.strip()
+    
+def extract_question_from_evaluation_prompt(evaluation_prompt: str) -> str:
+    match = re.search(
+        r"-----\s*Prompt:\s*(.*?)\s*Response:",
+        evaluation_prompt,
+        re.DOTALL
+    )
+    if match:
+        return match.group(1).strip()
+    return "<UNKNOWN QUESTION>"
+
+
+### dealing with cleaning up the evaluation output
+
+STRUCTURED_FIELDS = ["Critique:", "Score:", "Revised Response:"]
+
+def extract_final_structured_block(text: str) -> str:
+    """
+    Extract the final structured evaluation block, regardless of field order.
+    Anchors on the last occurrence of any known field header.
+    """
+    last_idx = -1
+    for field in STRUCTURED_FIELDS:
+        idx = text.rfind(field)
+        if idx > last_idx:
+            last_idx = idx
+
+    if last_idx == -1:
+        return ""
+
+    return text[last_idx:]
