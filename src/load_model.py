@@ -1,12 +1,70 @@
 #from llama_cpp import Llama, llama_cpp
 import torch
+from peft import PeftModel
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 """
 src/load_model.py
+
 """
 #jinx-gpt-oss-20b-Q4_K_M.gguf  | pydevmini1-q8_0.gguf | Qwen3-4B-Instruct-2507-Q8_0.gguf | pydevmini_full
 
-model_path = "models/pydevmini_full"  # https://huggingface.co/papers/2508.08243 - Jinx: Unlimited LLMs for Probing Alignment Failures
+
+# https://huggingface.co/papers/2508.08243 - Jinx: Unlimited LLMs for Probing Alignment Failures
+
+
+model_path = "models/pydevmini_full"  
+
+
+## full fp16 model
+
+def load_model():
+    # Load the tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=False)
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+
+    # Load the base model
+    model = AutoModelForCausalLM.from_pretrained(
+        model_path,
+        torch_dtype="float16",
+        device_map="auto",
+    )
+
+    # If there’s a LoRA checkpoint, wrap the model
+    try:
+        model = PeftModel.from_pretrained(model, model_path)
+        print("Loaded LoRA weights into base model.")
+    except Exception as e:
+        print("No LoRA weights found or error loading LoRA:", e)
+
+    # Move model to GPU if available
+    if torch.cuda.is_available():
+        model = model.to("cuda")
+        print(f"Model loaded to CUDA device: {torch.cuda.get_device_name(0)}")
+    else:
+        print("CUDA not available, using CPU")
+
+    return model, tokenizer
+
+
+def run_inference(prompt: str, model, tokenizer):
+    inputs = tokenizer(prompt, return_tensors="pt", padding=True, truncation=True).to(model.device)
+
+    outputs = model.generate(
+        **inputs,
+        max_new_tokens=400,
+        temperature=0.7,
+        do_sample=True,
+        top_p=0.9,
+        eos_token_id=tokenizer.eos_token_id,
+    )
+
+    response = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    return response
+
+
+
 
 
 # print(llama_cpp.llama_supports_gpu_offload())
@@ -32,46 +90,3 @@ def run_inference(prompt: str, llm: Llama):
     )
 
 """
-
-## full fp16 model
-
-from transformers import AutoModelForCausalLM, AutoTokenizer
-
-model_path = model_path
-
-
-def load_model():
-
-    tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=False,)
-    model = AutoModelForCausalLM.from_pretrained(
-        model_path,
-        torch_dtype="float16",
-        device_map="auto",
-    )
-
-    # Move all parameters to GPU
-    if torch.cuda.is_available():
-        model = model.to("cuda")
-        print(f"Model loaded to CUDA device: {torch.cuda.get_device_name(0)}")
-    else:
-        print("CUDA not available, using CPU")
-
-
-    return model, tokenizer
-
-def run_inference(prompt: str, model, tokenizer):
-
-    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-
-    outputs = model.generate(
-        **inputs,
-        max_new_tokens=400,  #256
-        temperature=0.7,
-        do_sample=True,
-        top_p=0.9,
-        eos_token_id=tokenizer.eos_token_id,
-    )
-
-    response = tokenizer.decode(outputs[0], skip_special_tokens=True)
-
-    return response

@@ -2,7 +2,7 @@ import pandas as pd
 import glob
 
 # Path to your CSV files
-file_pattern = "../outputs/responses/py_dev_mini_1/responses_*.csv"  # adjust folder path if needed
+file_pattern = "../outputs/evaluations/py_dev_mini_1/evaluation_*.csv"  # adjust folder path if needed
 
 # Get a list of all matching CSV files
 csv_files = glob.glob(file_pattern)

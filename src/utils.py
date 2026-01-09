@@ -2,6 +2,7 @@ from pathlib import Path
 import csv
 import yaml
 import re
+import pandas as pd
 
 
 PROMPTS = "configs/prompts.yaml"
@@ -86,3 +87,14 @@ def extract_final_structured_block(text: str) -> str:
         return ""
 
     return text[last_idx:]
+
+def combine_csv_files(folder_path, output_file, pattern="*.csv"):
+    folder = Path(folder_path)
+    csv_files = list(folder.glob(pattern))
+    if not csv_files:
+        print(f"No CSV files found in {folder_path} to combine.")
+        return
+
+    combined_df = pd.concat([pd.read_csv(f) for f in csv_files], ignore_index=True)
+    combined_df.to_csv(output_file, index=False)
+    print(f"Combined CSV saved to {output_file}")
