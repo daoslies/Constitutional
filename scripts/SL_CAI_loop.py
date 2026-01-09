@@ -45,6 +45,9 @@ def run():
         else:
             model_path = trained_model_path_template.format(epoch=epoch - 1)
 
+        # Update dataset path to use the most recent combined evaluations file for the current epoch
+        dataset_path = f"outputs/evaluations/{run_version}/{epoch}/combined_evaluations.csv"
+        
         print("Step 4: Training model...")
         trainer = train_model(run_version, model_path, output_path, dataset_path, epoch)
         
