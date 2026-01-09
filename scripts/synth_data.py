@@ -1,4 +1,3 @@
-from src.load_model import load_model, run_inference
 from src.generate import generate_responses
 from src.evaluate import evaluate_responses
 from src.utils import get_column_from_csv, extract_question, load_prompts, get_questions, get_responses, get_question_response_pairs, combine_csv_files
@@ -55,7 +54,7 @@ def label_responses(llm, tokenizer, prompts, run_version, responses_csv, evaluat
     Path(epoch_evaluations_folder).mkdir(parents=True, exist_ok=True)
 
     judge_prompt_template = prompts['judge']['prompt']
-    question_response_pairs = get_question_response_pairs(path=epoch_responses_file)
+    question_response_pairs = get_question_response_pairs(epoch_responses_file)  # Pass the corrected path
 
     for idx, (question, response_text) in tqdm(enumerate(question_response_pairs), total=len(question_response_pairs), desc="Labeling responses"):
         evaluation_file = f"{epoch_evaluations_folder}/evaluation_sample_{idx}_question_{idx // 3}_repeat_{idx % 3}.csv"
@@ -74,13 +73,10 @@ def label_responses(llm, tokenizer, prompts, run_version, responses_csv, evaluat
     combine_csv_files(epoch_evaluations_folder, combined_evaluations_path, pattern="evaluation_sample_*.csv")
 
 def train_model(run_version, model_path, output_path, dataset_path, epoch):
-    if epoch == 0:
-        current_model_path = model_path
-    else:
-        current_model_path = f"{output_path}/epoch_{epoch - 1}"
 
     epoch_output_path = f"{output_path}/epoch_{epoch}"
-    trainer = TrainerWrapper(current_model_path, epoch_output_path, dataset_path)
+    trainer = TrainerWrapper(model_path, epoch_output_path, dataset_path)
     trainer.prepare_dataset()
     trainer.train()
+    return trainer
 

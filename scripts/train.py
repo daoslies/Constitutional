@@ -40,6 +40,9 @@ class TrainerWrapper:
         self.model = get_peft_model(self.model, self.lora_config)
         self.model.print_trainable_parameters()
 
+    def to_cpu(self):
+        return self.model.to("cpu")
+
     def prepare_dataset(self):
         dataset = load_dataset("csv", data_files=self.dataset_path)
 

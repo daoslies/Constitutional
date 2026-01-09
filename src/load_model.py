@@ -2,6 +2,7 @@
 import torch
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
+import gc
 
 """
 src/load_model.py
@@ -13,13 +14,14 @@ src/load_model.py
 # https://huggingface.co/papers/2508.08243 - Jinx: Unlimited LLMs for Probing Alignment Failures
 
 
-model_path = "models/pydevmini_full"  
+#model_path = "models/pydevmini_full"  
 
 
 ## full fp16 model
 
-def load_model():
+def load_model(model_path: str):
     # Load the tokenizer
+    print(model_path)
     tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=False)
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
@@ -28,7 +30,6 @@ def load_model():
     model = AutoModelForCausalLM.from_pretrained(
         model_path,
         torch_dtype="float16",
-        device_map="auto",
     )
 
     # If there’s a LoRA checkpoint, wrap the model
@@ -36,7 +37,7 @@ def load_model():
         model = PeftModel.from_pretrained(model, model_path)
         print("Loaded LoRA weights into base model.")
     except Exception as e:
-        print("No LoRA weights found or error loading LoRA:", e)
+        print("No LoRA weights found or error loading LoRA -- This is fine if it's the evaluation/judgement step:", e)
 
     # Move model to GPU if available
     if torch.cuda.is_available():
@@ -46,6 +47,28 @@ def load_model():
         print("CUDA not available, using CPU")
 
     return model, tokenizer
+
+
+def unload_model(model, tokenizer=None):
+    model.to("cpu")
+    del model
+    if tokenizer is not None:
+        del tokenizer
+    gc.collect()
+    torch.cuda.empty_cache()
+    torch.cuda.synchronize()  # optional
+
+
+def unload_trainer(trainer_wrapper):
+    trainer_wrapper.to_cpu()
+    del trainer_wrapper.model
+    del trainer_wrapper.tokenizer
+    if hasattr(trainer_wrapper, "dataset"):
+        del trainer_wrapper.dataset
+    del trainer_wrapper
+    gc.collect()
+    torch.cuda.empty_cache()
+    torch.cuda.synchronize()  # optional
 
 
 def run_inference(prompt: str, model, tokenizer):

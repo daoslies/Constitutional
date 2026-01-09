@@ -22,8 +22,8 @@ def get_responses(path=responses_csv, run_version=run_version):
     return get_column_from_csv(path, "response")
 
 
-def get_question_response_pairs(path=responses_csv, run_version=run_version):
-    path = Path(path + run_version + "/combined_responses.csv")
+def get_question_response_pairs(path):
+    path = Path(path)  # Ensure the path is treated as a Path object
     data = []
     with path.open(newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
