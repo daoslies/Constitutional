@@ -1,5 +1,5 @@
 # Constitutional
-This repository is an independent reimplementation inspired by "Constitutional AI: Harmlessness from AI Feedback" (Bai et al., 2022).
+This repository is an independent reimplementation inspired by the Supervised Learning stage of Constitutional AI (SL-CAI) | "Constitutional AI: Harmlessness from AI Feedback" (Bai et al., 2022).
 
 
 
