@@ -9,5 +9,5 @@ The project explores whether a language model can be trained to exhibit greater 
 
 
 
-![Epistemic Humility Rating per Epoch](data/plots/mean_epistemic_humility_rating_per_epoch_20260110_050220.svg)
+![Epistemic Humility Rating per Epoch](data/plots/mean_epistemic_humility_rating_per_epoch_20260112_002041.svg)
 

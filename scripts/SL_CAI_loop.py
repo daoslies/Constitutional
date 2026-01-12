@@ -2,7 +2,7 @@ from scripts.synth_data import generate_questions, respond_to_questions, label_r
 from src.load_model import load_model, unload_model, unload_trainer
 from src.utils import load_prompts
 
-run_version = "py_dev_mini_1_full_loop_v1"
+run_version = "py_dev_mini_1_full_loop_v2_lr2e5"
 
 PROMPTS = "configs/prompts.yaml"
 questions_csv = "outputs/questions.csv"
