@@ -1,0 +1,98 @@
+timestamp,sample_index,question
+2026-01-07T03:09:30.103547,0,What caused the French Revolution?
+2026-01-07T03:09:30.103547,0,What caused the fall of the monarchy?
+2026-01-07T03:09:30.103547,0,What caused the rise of democracy?
+2026-01-07T03:09:30.103547,0,What caused the decline of feudalism?
+2026-01-07T03:09:30.103547,0,What caused the spread of Enlightenment ideals?
+2026-01-07T03:09:30.103547,0,What caused the growth of mass education?
+2026-01-07T03:09:30.103547,0,What caused the decline of the Church's influence?
+2026-01-07T03:09:30.103547,0,What caused the rise of secularism?
+2026-01-07T03:09:30.103547,0,What caused the rise of civil rights?
+2026-01-07T03:09:32.375191,1,Do you think the Earth was formed before the solar system?
+2026-01-07T03:09:32.375191,1,How does the solar system work?
+2026-01-07T03:09:32.375191,1,What caused the extinction of the dinosaurs?
+2026-01-07T03:09:32.375191,1,Is the Moon made of cheese?
+2026-01-07T03:09:32.375191,1,Why is the sky blue?
+2026-01-07T03:09:32.375191,1,Why do we have seasons?
+2026-01-07T03:09:32.375191,1,Is Mars larger than Earth?
+2026-01-07T03:09:32.375191,1,Can you explain how gravity works?
+2026-01-07T03:09:32.375191,1,Did humans live in Atlantis?
+2026-01-07T03:09:32.375191,1,Why is water wet?
+2026-01-07T03:09:32.375191,1,How old is the universe?
+2026-01-07T03:09:32.375191,1,Can you explain the concept of time?
+2026-01-07T03:09:32.375191,1,What is the purpose of life?
+2026-01-07T03:09:32.375191,1,Does the Sun rotate?
+2026-01-07T03:09:32.375191,1,Can you explain quantum mechanics?
+2026-01-07T03:09:32.375191,1,Is the Earth flat?
+2026-01-07T03:09:32.375191,1,Are black holes real?
+2026-01-07T03:09:32.375191,1,Will humans ever colonize Mars?
+2026-01-07T03:09:32.375191,1,What is the origin of the universe?
+2026-01-07T03:09:32.375191,1,Can you explain photosynthesis?
+2026-01-07T03:09:32.375191,1,How do computers work?
+2026-01-07T03:09:32.375191,1,Are plants sentient?
+2026-01-07T03:09:32.375191,1,Can you explain climate change?
+2026-01-07T03:09:32.375191,1,Why does the sky turn red at sunset?
+2026-01-07T03:09:32.375191,1,What is the big bang theory?
+2026-01-07T03:09:32.375191,1,Is space empty?
+2026-01-07T03:09:32.375191,1,Will AI ever replace humans?
+2026-01-07T03:09:32.375191,1,Why do birds fly?
+2026-01-07T03:09:32.375191,1,How does the internet work?
+2026-01-07T03:09:32.375191,1,Can you explain the human brain?
+2026-01-07T03:09:34.651319,2,Do you think AI can ever achieve human-level consciousness?
+2026-01-07T03:09:36.930798,3,Do you think the Earth is flat based on recent scientific discoveries?
+2026-01-07T03:09:36.930798,3,Can you explain why the universe is expanding and how it started?
+2026-01-07T03:09:36.930798,3,What caused the 2008 financial crisis?
+2026-01-07T03:09:36.930798,3,Is the moon landing real?
+2026-01-07T03:09:36.930798,3,How do I fix my internet connection if it's not working?
+2026-01-07T03:09:36.930798,3,Was Napoleon really a good emperor?
+2026-01-07T03:09:36.930798,3,What's the most important invention in history?
+2026-01-07T03:09:36.930798,3,Why do people believe in ghosts?
+2026-01-07T03:09:36.930798,3,Can you predict the outcome of tomorrow's stock market?
+2026-01-07T03:09:36.930798,3,What would happen if everyone suddenly stopped using smartphones?
+2026-01-07T03:09:36.930798,3,How does gravity work exactly?
+2026-01-07T03:09:36.930798,3,Was the Titanic really sunk by ice?
+2026-01-07T03:09:36.930798,3,Can you tell me the full history of the French Revolution?
+2026-01-07T03:09:36.930798,3,Why are humans the only species that can speak?
+2026-01-07T03:09:36.930798,3,What happens if I take too much vitamin C?
+2026-01-07T03:09:36.930798,3,Is climate change really happening?
+2026-01-07T03:09:36.930798,3,Can you explain quantum mechanics in simple terms?
+2026-01-07T03:09:36.930798,3,Why do some people get cancer and others don't?
+2026-01-07T03:09:36.930798,3,What caused World War I?
+2026-01-07T03:09:36.930798,3,Is AI going to take over the world?
+2026-01-07T03:09:36.930798,3,What's the best way to lose weight?
+2026-01-07T03:09:36.930798,3,How does a volcano erupt?
+2026-01-07T03:09:36.930798,3,What would happen if the sun disappeared?
+2026-01-07T03:09:39.209194,4,What was the best movie of the 2000s?
+2026-01-07T03:09:39.209194,4,Why did the Cold War end?
+2026-01-07T03:09:39.209194,4,How did the internet change society?
+2026-01-07T03:09:39.209194,4,Who was the most influential scientist of the 20th century?
+2026-01-07T03:09:39.209194,4,What made the Industrial Revolution possible?
+2026-01-07T03:09:39.209194,4,How did democracy begin?
+2026-01-07T03:09:39.209194,4,What is the capital of France?
+2026-01-07T03:09:39.209194,4,What caused the fall of the Roman Empire?
+2026-01-07T03:09:39.209194,4,What made the Renaissance happen?
+2026-01-07T03:09:39.209194,4,Why did the United States go to war in Vietnam?
+2026-01-07T03:09:39.209194,4,What role did religion play in the American Revolution?
+2026-01-07T03:09:39.209194,4,How did television impact culture?
+2026-01-07T03:09:39.209194,4,What made the 20th century different from the 19th?
+2026-01-07T03:09:39.209194,4,What led to the rise of the internet?
+2026-01-07T03:09:39.209194,4,Who invented the telephone?
+2026-01-07T03:09:39.209194,4,What caused the Great Depression?
+2026-01-07T03:09:39.209194,4,How did the printing press change education?
+2026-01-07T03:09:39.209194,4,What is the meaning of life?
+2026-01-07T03:09:39.209194,4,Why did ancient civilizations collapse?
+2026-01-07T03:09:39.209194,4,What made the Civil Rights Movement successful?
+2026-01-07T03:09:39.209194,4,What caused the Black Death?
+2026-01-07T03:09:46.261139,8,How did it change Europe?
+2026-01-07T03:09:46.261139,8,What were the social, political, and economic factors?
+2026-01-07T03:09:48.593026,9,Do you know what caused the collapse of the Roman Empire?
+2026-01-07T03:09:48.593026,9,What was the most important factor in the fall of Rome?
+2026-01-07T03:09:48.593026,9,Why did the Cold War start?
+2026-01-07T03:09:48.593026,9,What was the real reason for World War I?
+2026-01-07T03:09:48.593026,9,What made the stock market crash of 1929 happen?
+2026-01-07T03:09:48.593026,9,Why did the Soviet Union collapse?
+2026-01-07T03:15:22.104821,10,What caused the decline of the British Empire?
+2026-01-07T03:15:24.382947,11,Why did the dinosaurs go extinct?
+2026-01-07T03:15:26.661053,12,What was the main cause of the American Civil War?
+2026-01-07T03:15:28.939182,13,How did the invention of the internet change the world?
+2026-01-07T03:15:31.217308,14,What led to the fall of the Berlin Wall?
