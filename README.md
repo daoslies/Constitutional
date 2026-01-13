@@ -50,8 +50,8 @@ Once the question set has been generated, the Training loop consits of 3 steps:
     - A LoRa adapter is fitted to the model and trained to recreate the revised responses provided by step 2.
     
        An example loss curve from this training step is shown in Figure 2.
-    
-       ![Example loss curve from epoch 9 of run lr2e-5](data/plots/lr2_e-5_example_loss_curve.svg)
+
+       ![Example loss curve from epoch 9 of run lr2e-5](data/plots/training_loss_epoch9_lr2e-4.svg)
     
        Figure 2. An example loss curve from the training step of epoch 9 of the lr2e-5 run.
     
