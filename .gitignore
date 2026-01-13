@@ -1,5 +1,8 @@
 *.gguf
 *.csv
+!/data/
+!/data/*.csv
+!/data/**/*.csv
 
 
 
