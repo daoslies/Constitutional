@@ -137,7 +137,3 @@ def evaluate_responses(prompt, response_text, llm, tokenizer, samples_per_prompt
         avg_score = sum(scores) / len(scores)
         print(f"Sample {question_text}: average score = {avg_score:.2f}")
         break
-
-
-
-### Something is currently wrong with the evaluations that get saved. Check the parsing and the CSV writing.
