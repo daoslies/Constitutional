@@ -8,8 +8,10 @@ from .load_model import run_inference
 import re
 
 
-## The below functions feel a little convoluted, but they're to deal with messy LLM outputs.
-## sometimes nlp just is a bit convoluted.
+## Parse Evaluation
+
+### The below functions feel a little convoluted, but they're to deal with messy LLM outputs.
+### sometimes nlp just is a bit convoluted.
 
 def strip_conversation_blocks(text: str):
     
@@ -66,7 +68,7 @@ def parse_evaluation(evaluation_text: str):
     return score, critique, revised
 
 
-
+## Saving Evaluation
 
 
 def write_evaluation_csv(out_csv, sample_index, question, response, score, critique, revised, error=None):
@@ -97,6 +99,8 @@ def write_evaluation_csv(out_csv, sample_index, question, response, score, criti
             "revised_response": revised.replace("\n", " "),
             "error": error
         })
+
+## Run Evaluation
 
 def evaluate_responses(prompt, response_text, llm, tokenizer, samples_per_prompt=1, evaluations_per_sample=3, out_csv="outputs/evaluations.csv"):
     question_text = extract_question(prompt)
