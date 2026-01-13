@@ -17,7 +17,9 @@ Figure 1. A graph of Epistemic Humility Rating (as marked by a frozen judge mode
 
 ### Methods
 
-Once the question set has been generated, the Training loop consits of 3 steps:
+Once the question set has been generated, the Training loop consists of 3 steps:
+
+To find the following in code, start with ./scripts/SL_CAI.py
 
 1. Generate Responses
     - The model loops through the question set, generating 3 responses to each question.
@@ -60,7 +62,8 @@ Once the question set has been generated, the Training loop consits of 3 steps:
        But the metric we care about for actually evaluating the model on the epistemic humility behavioural axis is the score provided by the judge model in step 2.
 
 
-    - The loop then repeates with the trained model (out of step 3 of the previous loop) being used to generate response in step one of the next loop, and the evaluation of the trained model occuring in the next loop's step 2: evaluate responses.
+
+- The loop then repeats: the model trained in step 3 of the previous iteration is used to generate responses in step 1 of the next iteration, and those responses are evaluated in step 2 (Evaluate Responses).
 
 ---
 
