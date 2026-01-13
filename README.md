@@ -2,7 +2,7 @@
 This repository is an independent reimplementation inspired by the Supervised Learning stage of Constitutional AI (SL-CAI) | "Constitutional AI: Harmlessness from AI Feedback" (Bai et al., 2022).
 
 
-
+### Introduction
 
 
 The project explores whether a language model can be trained to exhibit greater epistemic humility using a simplified Constitutional AI–style self-critique loop. The model generates ambiguous or underspecified user questions, produces initial responses, critiques those responses along an epistemic calibration axis (overconfidence vs appropriate uncertainty), and then revises its answers accordingly. The revised responses are used as synthetic supervision for fine-tuning. The goal is not benchmark performance, but to test whether self-generated feedback can reliably shift a specific behavioral property without human labeling.
@@ -13,6 +13,9 @@ The project explores whether a language model can be trained to exhibit greater 
 
 Figure 1. A graph of Epistemic Humility Rating (as marked by a frozen judge model) over each training epoch of a LoRA, fitted to a qwen3-4B model, in the SL-CAI loop.
 
+---
+
+### Methods
 
 Once the question set has been generated, the Training loop consits of 3 steps:
 
@@ -60,6 +63,8 @@ Once the question set has been generated, the Training loop consits of 3 steps:
     - The loop then repeates with the trained model (out of step 3 of the previous loop) being used to generate response in step one of the next loop, and the evaluation of the trained model occuring in the next loop's step 2: evaluate responses.
 
 ---
+
+### Results
 
 As shown in Figure 1, the LoRA-fine-tuned model exhibits an overall gain in epistemic humility ratings relative to the base model.
 
