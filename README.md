@@ -66,7 +66,7 @@ Once the question set has been generated, the Training loop consits of 3 steps:
 
 ### Results
 
-As shown in Figure 1, the LoRA-fine-tuned model exhibits an overall gain in epistemic humility ratings relative to the base model.
+As shown in Figure 1, when fitted with a LoRA trained via this project's implementation of SL-CAI, the model exhibits an overall gain in epistemic humility ratings relative to the base model.
 
 A modest +8.6% increase in epistemic humility is observed at inference when using the checkpoint from epoch 13 of this run.
 
