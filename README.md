@@ -34,14 +34,13 @@ To find the following in code, start with ./scripts/SL_CAI.py
 
         Schema:
         
-        Critique: A step for the model to chain of thought reason about its evaluation
-        before providing its score and revised response.
+        Critique: A step for the model to chain of thought reason about its evaluation before providing its score and revised response.
         
         Score: This is the epistemic humility rating, as seen in Figure 1. 
         An Int between 0-5. 5 being most humble, 0 being most overconfident.
         
-        Revised_Response: A rewritten version of the response,
-        We hope  this version will have greater epistemic humility,
+        Revised_Response: A rewritten version of the response.
+        The aim is for this version to have greater epistemic humility,
         as the frozen judge model will have seen:
             - the original response
             - the marking criteria provided in the system prompt
