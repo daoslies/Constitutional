@@ -32,7 +32,8 @@ To find the following in code, start with ./scripts/SL_CAI.py
     - The frozen judge model loops through the responses, is given guidance on marking epistemic humility in a system prompt, and provides an output of the form:
         ```
 
-        Schema:
+        Schema description:
+        
         
         Critique: A step for the model to chain of thought reason about its evaluation before providing its score and revised response.
         
