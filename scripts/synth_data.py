@@ -74,8 +74,7 @@ def label_responses(llm, tokenizer, prompts, run_version, responses_csv, evaluat
 
 def train_model(run_version, model_path, output_path, dataset_path, epoch):
 
-    epoch_output_path = f"{output_path}/epoch_{epoch}"
-    trainer = TrainerWrapper(model_path, epoch_output_path, dataset_path)
+    trainer = TrainerWrapper(model_path, output_path, dataset_path, run_version, epoch)
     trainer.prepare_dataset()
     trainer.train()
     return trainer

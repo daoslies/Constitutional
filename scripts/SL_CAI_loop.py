@@ -2,7 +2,7 @@ from scripts.synth_data import generate_questions, respond_to_questions, label_r
 from src.load_model import load_model, unload_model, unload_trainer
 from src.utils import load_prompts
 
-run_version = "py_dev_mini_1_full_loop_v2_lr2e5"
+run_version = "py_dev_mini_1_full_loop_v3_lr5e4"
 
 PROMPTS = "configs/prompts.yaml"
 questions_csv = "outputs/questions.csv"
@@ -38,18 +38,20 @@ def run():
         label_responses(llm, tokenizer, prompts, run_version, responses_csv, evaluations_csv, epoch)
 
         unload_model(llm, tokenizer) ## free up vram
-
+        
+        """        ## Uneeded as we've moved this into train_model's trainer()
         # Load the freshly trained model for training
         if epoch == 0:
             model_path = base_model_path
         else:
             model_path = trained_model_path_template.format(epoch=epoch - 1)
+        """
 
         # Update dataset path to use the most recent combined evaluations file for the current epoch
         dataset_path = f"outputs/evaluations/{run_version}/{epoch}/combined_evaluations.csv"
         
         print("Step 4: Training model...")
-        trainer = train_model(run_version, model_path, output_path, dataset_path, epoch)
+        trainer = train_model(run_version, base_model_path, output_path, dataset_path, epoch)
         
         unload_trainer(trainer) ## free up vram
 
