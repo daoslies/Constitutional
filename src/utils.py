@@ -91,10 +91,19 @@ def extract_final_structured_block(text: str) -> str:
 def combine_csv_files(folder_path, output_file, pattern="*.csv"):
     folder = Path(folder_path)
     csv_files = list(folder.glob(pattern))
+
     if not csv_files:
         print(f"No CSV files found in {folder_path} to combine.")
         return
+    
+    dataframes_to_combine = []
+    for file in csv_files:
+        try:
+            dataframes_to_combine.append(pd.read_csv(file))
+        except Exception as e:
+            print(f"Error reading {file}: {e}")
 
-    combined_df = pd.concat([pd.read_csv(f) for f in csv_files], ignore_index=True)
+
+    combined_df = pd.concat(dataframes_to_combine, ignore_index=True)
     combined_df.to_csv(output_file, index=False)
     print(f"Combined CSV saved to {output_file}")

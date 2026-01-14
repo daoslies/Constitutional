@@ -9,9 +9,7 @@ from tqdm import tqdm
 
 
 
-run_version = "py_dev_mini_1"
-
-task = "respond_to_questions"  # ( generate_questions | respond_to_questions | label_responses | training )
+# ( generate_questions | respond_to_questions | label_responses | training )
 
 
 

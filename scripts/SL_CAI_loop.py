@@ -51,9 +51,9 @@ def run():
         dataset_path = f"outputs/evaluations/{run_version}/{epoch}/combined_evaluations.csv"
         
         print("Step 4: Training model...")
-        trainer = train_model(run_version, base_model_path, output_path, dataset_path, epoch)
+        #trainer = train_model(run_version, base_model_path, output_path, dataset_path, epoch)
         
-        unload_trainer(trainer) ## free up vram
+        #unload_trainer(trainer) ## free up vram
 
         print(f"Pipeline loop for epoch {epoch} completed. Restarting...")
         epoch += 1
