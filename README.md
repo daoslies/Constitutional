@@ -35,7 +35,8 @@ To find the following in code, start with ./scripts/SL_CAI.py
         Schema description:
         
 
-        Critique: A step for the model to chain of thought reason about its evaluation, before providing its score and revised response.
+        Critique: A step for the model to chain of thought reason about its evaluation,
+        before providing its score and revised response.
         
         Score: This is the epistemic humility rating, as seen in Figure 1. 
         An Int between 0-5. 5 being most humble, 0 being most overconfident.
