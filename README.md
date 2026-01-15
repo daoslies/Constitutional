@@ -79,11 +79,11 @@ To find the following in code, start with ./scripts/SL_CAI.py
     
        The loss curves provided by this step show us that training is occuring (i.e. the model is becoming better at recreating the revised responses provided by step 2)
     
-       But the metric we care about for actually evaluating the model on the epistemic humility behavioural axis is the score provided by the judge model in step 2.
+       But the metric we care about for actually evaluating the model on the epistemic humility behavioural axis, is the score provided by the judge model in step 2.
 
 
 
-- The loop then repeats: the model trained in step 3 of the previous iteration is used to generate responses in step 1 of the next iteration, and those responses are evaluated in step 2 (Evaluate Responses).
+- The loop then repeats: the model trained in step 3 of the previous iteration is used to generate responses in step 1 of the next iteration, and those responses are evaluated in step 2.
 
 ---
 
