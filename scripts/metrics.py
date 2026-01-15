@@ -11,7 +11,7 @@ metrics.py
 Loop through all CSV files in the py_dev_mini_1_full_loop_v1 folder and print the overall mean score for each.
 """
 
-evaluations_dir = "../outputs/evaluations/py_dev_mini_1_full_loop_v2_lr2e5"
+evaluations_dir = "../outputs/evaluations/py_dev_mini_1_full_loop_v3_lr5e4"
 
 def get_csv_paths() -> list[Path]:
     """
