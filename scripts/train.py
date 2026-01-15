@@ -57,8 +57,7 @@ class TrainerWrapper:
             self.model.print_trainable_parameters()
             print("Initialized LoRA layers for SL-CAI training.")
 
-            
-        ## DO we need to do this?
+                     
         if self.SL_CAI_epoch > 0 and self.lora_adapter_path is not None:
             print(f"Loading LoRA adapter from previous epoch at: {self.lora_adapter_path}")
 
