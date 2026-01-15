@@ -90,7 +90,7 @@ To find the following in code, start with ./scripts/SL_CAI.py
 
 As shown in Figure 1, when fitted with a LoRA trained via this project's implementation of SL-CAI, the model exhibits an overall gain in epistemic humility ratings relative to the base model.
 
-A modest +8.6% increase in epistemic humility is observed at inference when using the checkpoint from epoch 13 of this run.
+A modest +15% increase in epistemic humility is observed at inference when using the top performing checkpoint from this run.
 
 These results suggest that even lightweight, parameter-efficient fine-tuning can produce detectable changes in epistemic calibration when coupled with an evaluation-driven training loop.
 
